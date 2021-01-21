@@ -21,22 +21,34 @@ class ViewController: UIViewController {
         return button
     } ()
     
-    let userNameLabel: UILabel = {
-        let label = UILabel()
-        label.layer.cornerRadius = 5.0
-        label.layer.borderWidth = 2.0
-        label.textAlignment = .center
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.isHidden = true
-        return label
+    let userNameField: UITextField = {
+        let textField = UITextField()
+        textField.layer.cornerRadius = 5.0
+        textField.layer.borderWidth = 2.0
+        textField.textAlignment = .left
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.isHidden = true
+        return textField
     } ()
+    let passwordField: UITextField = {
+          let textField = UITextField()
+          textField.layer.cornerRadius = 5.0
+          textField.layer.borderWidth = 2.0
+          textField.textAlignment = .left
+          textField.translatesAutoresizingMaskIntoConstraints = false
+          textField.isHidden = true
+          return textField
+      } ()
+      
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(loginButton)
-        view.addSubview(userNameLabel)
+        view.addSubview(userNameField)
+        view.addSubview(passwordField)
         setupButton()
-        setupLabel()
+        setupUserNameTextField()
+        setupPasswordTextField()
     }
     
     internal func setupButton() {
@@ -46,17 +58,25 @@ class ViewController: UIViewController {
         loginButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 0).isActive = true
     }
     
-    internal func setupLabel() {
-        userNameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30.0).isActive = true
-        userNameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30.0).isActive = true
-        userNameLabel.bottomAnchor.constraint(equalTo: loginButton.topAnchor, constant: -30.0).isActive = true
-        userNameLabel.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
+    internal func setupUserNameTextField() {
+        userNameField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30.0).isActive = true
+        userNameField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30.0).isActive = true
+        userNameField.bottomAnchor.constraint(equalTo: loginButton.topAnchor, constant: -120.0).isActive = true
+        userNameField.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
     }
-    
+    internal func setupPasswordTextField() {
+          passwordField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30.0).isActive = true
+          passwordField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30.0).isActive = true
+          passwordField.topAnchor.constraint(equalTo: userNameField.bottomAnchor, constant: 20.0).isActive = true
+          passwordField.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
+      }
+      
     
     @objc func didTapOnButton() {
-        userNameLabel.isHidden = false
-        userNameLabel.text = "User Name"
+        userNameField.isHidden = false
+        userNameField.text = "  User Name:"
+        passwordField.isHidden = false
+        passwordField.text = "  Password:"
     }
 }
 
