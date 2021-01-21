@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    let button: UIButton = {
+    let loginButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = UIColor.gray
         button.layer.cornerRadius = 5.0
@@ -21,7 +21,7 @@ class ViewController: UIViewController {
         return button
     } ()
     
-    let label: UILabel = {
+    let userNameLabel: UILabel = {
         let label = UILabel()
         label.layer.cornerRadius = 5.0
         label.layer.borderWidth = 2.0
@@ -30,33 +30,33 @@ class ViewController: UIViewController {
         label.isHidden = true
         return label
     } ()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(button)
-        view.addSubview(label)
+        view.addSubview(loginButton)
+        view.addSubview(userNameLabel)
         setupButton()
         setupLabel()
     }
-
+    
     internal func setupButton() {
-        button.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30.0).isActive = true
-          button.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30.0).isActive = true
-        button.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
-        button.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 0).isActive = true
+        loginButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30.0).isActive = true
+        loginButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30.0).isActive = true
+        loginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
+        loginButton.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 0).isActive = true
     }
     
     internal func setupLabel() {
-        label.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30.0).isActive = true
-        label.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30.0).isActive = true
-        label.bottomAnchor.constraint(equalTo: button.topAnchor, constant: -30.0).isActive = true
-        label.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
+        userNameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30.0).isActive = true
+        userNameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30.0).isActive = true
+        userNameLabel.bottomAnchor.constraint(equalTo: loginButton.topAnchor, constant: -30.0).isActive = true
+        userNameLabel.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
     }
     
     
     @objc func didTapOnButton() {
-        label.isHidden = false
-        label.text = "User Name"
+        userNameLabel.isHidden = false
+        userNameLabel.text = "User Name"
     }
 }
 
